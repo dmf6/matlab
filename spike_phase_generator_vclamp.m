@@ -151,9 +151,7 @@ function [frequencies, spikephases, spiketimes, isis, avgisis] = spike_phase_gen
          n = find(spiketimes(:, i) > 0)
          if(length(n) > 1)
              for j = 2:length(n)
-                 if(spiketimes(j, i) > 0)
-                    isis(j-1, count) = spiketimes(j, i)-spiketimes(j-1, i);
-                 end
+                 isis(j-1, count) = spiketimes(j, i)-spiketimes(j-1, i);
              end
              % get average for all ISIs
              avgisis = [avgisis; mean(isis(1:n, count))];
